@@ -1,0 +1,16 @@
+covid-component {
+    nav {
+        ul {
+            li.nav-item {
+                a {
+                    .active {
+                        @include nav-active;
+                    }
+                    &:hover {
+                        @include nav-active;
+                    }
+                }
+            }
+        }
+    }
+}

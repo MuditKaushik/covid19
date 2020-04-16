@@ -1,0 +1,10 @@
+%nav-link-highlght {
+    border-radius: 2em;
+    background: map-get($map: $colors, $key: "blue");
+    color: map-get($map: $colors, $key: "white");
+    box-shadow: inset 100px 0 0 0 #e0e0e0;
+}
+
+@function transition-elements($property, $delay, $time) {
+    @return 0;
+}
