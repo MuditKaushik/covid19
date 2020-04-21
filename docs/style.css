@@ -7143,9 +7143,11 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-covid-component nav ul li.nav-item a .active, covid-component nav ul li.nav-item a:hover {
-  border-radius: 2em;
-  background: #007bff;
-  color: #fff;
-  box-shadow: inset 100px 0 0 0 #e0e0e0; }
+.space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+covid-component .container .summary .card {
+  width: 18rem; }
 

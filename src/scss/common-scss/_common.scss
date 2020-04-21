@@ -5,6 +5,12 @@
     box-shadow: inset 100px 0 0 0 #e0e0e0;
 }
 
-@function transition-elements($property, $delay, $time) {
-    @return 0;
+%space-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.space-between {
+    @extend %space-between;
 }

@@ -16,7 +16,7 @@ export class NCovid19WorldHttp {
             );
     }
     getCovidGlobalSummary(): Observable<ICovidSummary> {
-        return this.http.get<ICovidSummary>('', { observe: 'response' })
+        return this.http.get<ICovidSummary>('https://api.covid19api.com/summary', { observe: 'response' })
             .pipe(
                 map(response => HttpResponseHandler.fetchResponse(response)),
                 catchError(err => HttpResponseHandler.handlerResponseError(err))

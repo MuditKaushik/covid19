@@ -22,5 +22,6 @@ export interface ICovidCountrySummary {
 
 export interface ICovidSummary {
     Global: ICovidGlobalSummary;
-    Countries: ICovidCountrySummary;
+    Countries: Array<ICovidCountrySummary>;
+    Date: Date | string;
 }

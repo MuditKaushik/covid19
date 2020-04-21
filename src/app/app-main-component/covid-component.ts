@@ -1,20 +1,14 @@
 import { Component } from '@angular/core';
-import { NCovidIndiaService } from '../core/ncovid-api/india';
-import { IMessage } from '../model/message';
+import { nCovidWorldFetchSummaryAction } from '../app-state-management/actions/ncovid-world-action';
+import { IAppState } from '../app-state-management/state-model';
+import { Store } from '@ngrx/store';
 
 @Component({
     selector: 'covid-component',
     templateUrl: './covid-template.html'
 })
 export class CovidComponent {
-    constructor(private covidIndiaService: NCovidIndiaService) {
-        this.fetchCovidData();
-    }
-    fetchCovidData(): void {
-        this.covidIndiaService.getNCovidIndiaAll().subscribe((covid) => {
-            console.log(covid);
-        }, (err: IMessage) => {
-            console.log(err);
-        });
+    constructor(private store: Store<IAppState>) {
+        this.store.dispatch(nCovidWorldFetchSummaryAction());
     }
 }
