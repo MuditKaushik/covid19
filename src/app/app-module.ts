@@ -9,7 +9,14 @@ import { AppStateModule } from './app-state-management/app-state-module';
 import { CoreModule } from './core/core-module';
 
 @NgModule({
-    imports: [CommonModule, FormsModule, HttpClientModule, CoreModule, AppStateModule, AppRouteModule],
+    imports: [
+        CommonModule,
+        FormsModule,
+        HttpClientModule,
+        CoreModule,
+        AppRouteModule,
+        AppStateModule
+    ],
     exports: [BrowserModule],
     declarations: [CovidComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],

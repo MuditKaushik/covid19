@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { ICovidCountrySummary, ICovidGlobalSummary, ICovidSummary } from '../../model/covid/world';
+import { select, Store } from '@ngrx/store';
+import { of } from 'rxjs';
+import { switchMap, delay } from 'rxjs/operators';
 import { BinarySearchPipe } from '../../app-pipes/algo-pipe/binary-search-pipe';
-import { IAppState } from '../../app-state-management/state-model';
 import { summarySelector } from '../../app-state-management/selectors/state-selectors';
+import { IAppState } from '../../app-state-management/state-model';
+import { ICovidCountrySummary, ICovidGlobalSummary, ICovidSummary } from '../../model/covid/world';
 
 @Component({
     selector: 'ncovid-summary',
@@ -14,8 +16,12 @@ export class NCovidSummaryComponent {
     indiaCovidSummay: ICovidCountrySummary = {} as ICovidCountrySummary;
     countryCount: number = 0;
     tillDate: Date = new Date();
+
     constructor(private ngStore: Store<IAppState>) {
-        this.ngStore.select(summarySelector).subscribe((summary: ICovidSummary) => {
+        of([]).pipe(
+            delay(500),
+            switchMap(() => this.ngStore.pipe(select(summarySelector)))
+        ).subscribe((summary: ICovidSummary) => {
             this.globalCovidSummary = summary.Global;
             this.countryCount = summary.Countries.length;
             this.tillDate = new Date(summary.Date);
