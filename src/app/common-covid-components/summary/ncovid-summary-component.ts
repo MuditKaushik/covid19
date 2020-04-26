@@ -19,7 +19,7 @@ export class NCovidSummaryComponent {
 
     constructor(private ngStore: Store<IAppState>) {
         of([]).pipe(
-            delay(500),
+            delay(3000),
             switchMap(() => this.ngStore.pipe(select(summarySelector)))
         ).subscribe((summary: ICovidSummary) => {
             this.globalCovidSummary = summary.Global;
