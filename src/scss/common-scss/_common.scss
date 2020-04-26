@@ -11,6 +11,30 @@
     justify-content: space-between;
 }
 
+%remove-background-color {
+    background: map-get($map: $colors, $key: "white");
+}
+
+%remove-bottom-border {
+    border-bottom: none;
+}
+
+%cursor-pointer {
+    cursor: pointer;
+}
+
 .space-between {
     @extend %space-between;
+}
+
+.remove-bg-color {
+    @extend %remove-background-color;
+}
+
+.remove-bottom-border {
+    @extend %remove-bottom-border;
+}
+
+.pointer {
+    @extend %cursor-pointer;
 }

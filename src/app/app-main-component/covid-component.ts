@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { nCovidWorldFetchSummaryAction } from '../app-state-management/actions/ncovid-world-action';
+import { nCovidWorldFetchSummaryAction, nCovidWorldFetchCountriesAction } from '../app-state-management/actions/ncovid-world-action';
 import { IAppState } from '../app-state-management/state-model';
 
 @Component({
@@ -10,5 +10,6 @@ import { IAppState } from '../app-state-management/state-model';
 export class CovidComponent {
     constructor(private ngStore: Store<IAppState>) {
         this.ngStore.dispatch(nCovidWorldFetchSummaryAction());
+        this.ngStore.dispatch(nCovidWorldFetchCountriesAction());
     }
 }
