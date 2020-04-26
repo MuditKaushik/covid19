@@ -4,6 +4,10 @@ export interface ICovidCountry {
     ISO2: string;
 }
 
+export interface ICovidCountryList {
+    countries: Array<ICovidCountry>;
+}
+
 export interface ICovidCountryCases {
     Country: string;
     CountryCode: string;

@@ -2,7 +2,7 @@
     <div class="row mb-3">
         <div class="col">
             <div class="card">
-                <div class="card-header remove-bottom-border remove-bg-color pointer">
+                <div class="card-header remove-bg-color pointer">
                     <div class="space-between mb-3">
                         <h5 class="card-title">
                             <img src="/assets/earth.svg" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -36,8 +36,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <!-- TODO: Detail View -->
+                <div class="card-body" *ngIf="showCountrySummary">
+                    <ncovid-global-countries></ncovid-global-countries>
                 </div>
             </div>
         </div>

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { map, switchMap } from 'rxjs/operators';
+import { ICovidCountry, ICovidCountrySummary } from 'src/app/model/covid/world';
+import { countriesSelector, summarySelector } from '../../app-state-management/selectors/state-selectors';
 import { IAppState } from '../../app-state-management/state-model';
-import { countriesSelector } from '../../app-state-management/selectors/state-selectors';
 
 @Component({
     selector: 'ncovid-global-countries',
@@ -9,8 +11,14 @@ import { countriesSelector } from '../../app-state-management/selectors/state-se
 })
 
 export class NCovidCountriesComponent {
-    constructor(private ngStore: Store<IAppState>) {
-        this.ngStore.pipe(select(countriesSelector));
-    }
+    countriesSummary: Array<ICovidCountrySummary> = new Array<ICovidCountrySummary>();
+    countries: Array<ICovidCountry> = new Array<ICovidCountry>();
 
+    constructor(private ngStore: Store<IAppState>) {
+        this.ngStore.pipe(select(summarySelector)).pipe(
+            map((summary) => this.countriesSummary = summary.Countries),
+            switchMap(() => this.ngStore.select(countriesSelector)),
+            map(countries => this.countries = countries)
+        ).subscribe();
+    }
 }

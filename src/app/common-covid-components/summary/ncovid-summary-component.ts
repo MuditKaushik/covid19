@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { of } from 'rxjs';
-import { switchMap, delay } from 'rxjs/operators';
+import { delay, switchMap } from 'rxjs/operators';
 import { BinarySearchPipe } from '../../app-pipes/algo-pipe/binary-search-pipe';
-import { summarySelector, countriesSelector } from '../../app-state-management/selectors/state-selectors';
+import { summarySelector } from '../../app-state-management/selectors/state-selectors';
 import { IAppState } from '../../app-state-management/state-model';
 import { ICovidCountrySummary, ICovidGlobalSummary, ICovidSummary } from '../../model/covid/world';
 
@@ -16,6 +16,7 @@ export class NCovidSummaryComponent {
     indiaCovidSummay: ICovidCountrySummary = {} as ICovidCountrySummary;
     countryCount: number = 0;
     tillDate: Date = new Date();
+    showCountrySummary: boolean = false;
 
     constructor(private ngStore: Store<IAppState>) {
         of([]).pipe(
@@ -29,9 +30,7 @@ export class NCovidSummaryComponent {
             if (indiaSummary) {
                 this.indiaCovidSummay = indiaSummary;
             }
-            this.ngStore.pipe(select(countriesSelector)).subscribe((global) => {
-                console.log(global);
-            });
+            this.showCountrySummary = true;
         });
     }
 }

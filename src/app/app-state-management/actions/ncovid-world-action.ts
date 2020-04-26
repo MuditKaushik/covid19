@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ICovidSummary, ICovidCountry } from '../../model/covid/world';
+import { ICovidSummary, ICovidCountryList } from '../../model/covid/world';
 
 export enum nCovidWorldActionType {
     fetchGlobalSummary = '[fetch Summary] Fetch Global Summary',
@@ -11,4 +11,4 @@ export enum nCovidWorldActionType {
 export const nCovidWorldFetchSummaryAction = createAction(nCovidWorldActionType.fetchGlobalSummary);
 export const nCovidWorldFetchCountriesAction = createAction(nCovidWorldActionType.fetchCountries);
 export const nCovidWorldAddSummaryAction = createAction(nCovidWorldActionType.addGlobalSummary, props<ICovidSummary>());
-export const nCovidWorldAddCountriesAction = createAction(nCovidWorldActionType.addCountries, props<{ countries: Array<ICovidCountry> }>());
+export const nCovidWorldAddCountriesAction = createAction(nCovidWorldActionType.addCountries, props<ICovidCountryList>());
