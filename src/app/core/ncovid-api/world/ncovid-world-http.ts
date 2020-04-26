@@ -8,8 +8,8 @@ import { ICovidCountry, ICovidSummary } from '../../../model/covid/world';
 @Injectable()
 export class NCovid19WorldHttp {
     constructor(private http: HttpClient) { }
-    getWorldCountry(): Observable<ICovidCountry> {
-        return this.http.get<ICovidCountry>('https://api.covid19api.com/countries', { observe: 'response' })
+    getWorldCountry(): Observable<Array<ICovidCountry>> {
+        return this.http.get<Array<ICovidCountry>>('https://api.covid19api.com/countries', { observe: 'response' })
             .pipe(
                 map(response => HttpResponseHandler.fetchResponse(response)),
                 catchError(err => HttpResponseHandler.handlerResponseError(err))

@@ -1,64 +1,81 @@
-<div class="row justify-text-center">
-    <div class="col-md-8 summary">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card mb-5">
-                    <div class="card-body">
+<div class="container summary">
+    <div class="row mb-3">
+        <div class="col">
+            <div class="card">
+                <div class="card-header remove-bottom-border remove-bg-color pointer">
+                    <div class="space-between mb-3">
                         <h5 class="card-title">
-                            <i class="fa fa-lg fa-globe fa-fw" aria-hidden="true"></i>
+                            <img src="/assets/earth.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                             World Summary
                         </h5>
-                        <hr />
-                        <div class="space-between">
-                            <span class="text-muted">Countries</span>
-                            <span class="text-muted">{{countryCount}}</span>
+                        <span class="fa fa-arrow-up fa-fw"></span>
+                    </div>
+                    <div class="card-subtitle form-inline text-muted space-between">
+                        <div class="form-group mb-2">
+                            <label for="country">Countries</label>
+                            <p id="country" readonly class="form-control-plaintext">{{countryCount}}</p>
                         </div>
-                        <div class="space-between">
-                            <span class="text-muted">Cases</span>
-                            <span class="text-muted">{{globalCovidSummary.TotalConfirmed}}</span>
+                        <div class="form-group mb-2">
+                            <label for="country">Active Cases</label>
+                            <p id="country" readonly class="form-control-plaintext">
+                                {{globalCovidSummary.TotalConfirmed}}</p>
                         </div>
-                        <div class="space-between">
-                            <span class="text-muted">Deaths</span>
-                            <span class="text-muted">{{globalCovidSummary.TotalDeaths}}</span>
+                        <div class="form-group mb-2">
+                            <label for="country">Deaths</label>
+                            <p id="country" readonly class="form-control-plaintext">{{globalCovidSummary.TotalDeaths}}
+                            </p>
                         </div>
-                        <div class="space-between">
-                            <span class="text-muted">Recovered</span>
-                            <span class="text-muted">{{globalCovidSummary.TotalRecovered}}</span>
+                        <div class="form-group mb-2">
+                            <label for="country">Recovered</label>
+                            <p id="country" readonly class="form-control-plaintext">
+                                {{globalCovidSummary.TotalConfirmed}}</p>
                         </div>
-                        <div class="space-between">
-                            <span class="text-muted">Till Date:</span>
-                            <span class="text-muted">{{tillDate | date}}</span>
+                        <div class="form-group mb-2">
+                            <label for="country">Till Date</label>
+                            <p id="country" readonly class="form-control-plaintext">{{tillDate | date}}</p>
                         </div>
-                        <a href="#" class="btn btn-primary">Details</a>
                     </div>
                 </div>
+                <div class="card-body">
+                    <!-- TODO: Detail View -->
+                </div>
             </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header remove-bottom-border remove-bg-color pointer">
+                    <div class="space-between mb-3">
                         <h5 class="card-title">
                             <img src="/assets/covid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                             India Summary
                         </h5>
-                        <hr />
-                        <div class="space-between">
-                            <span class="text-muted">Cases</span>
-                            <span class="text-muted">{{indiaCovidSummay.TotalConfirmed}}</span>
-                        </div>
-                        <div class="space-between">
-                            <span class="text-muted">Deaths</span>
-                            <span class="text-muted">{{indiaCovidSummay.TotalDeaths}}</span>
-                        </div>
-                        <div class="space-between">
-                            <span class="text-muted">Recovered</span>
-                            <span class="text-muted">{{indiaCovidSummay.TotalRecovered}}</span>
-                        </div>
-                        <div class="space-between">
-                            <span class="text-muted">Till Date:</span>
-                            <span class="text-muted">{{indiaCovidSummay.Date | date}}</span>
-                        </div>
-                        <a href="#" class="btn btn-primary">Details</a>
+                        <span class="fa fa-arrow-up fa-fw"></span>
                     </div>
+                    <div class="card-subtitle form-inline text-muted space-between">
+                        <div class="form-group mb-2 mr-2">
+                            <label for="country">Active Cases</label>
+                            <p id="country" readonly class="form-control-plaintext">
+                                {{indiaCovidSummay.TotalConfirmed}}</p>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="country">Deaths</label>
+                            <p id="country" readonly class="form-control-plaintext">{{indiaCovidSummay.TotalDeaths}}
+                            </p>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="country">Recovered</label>
+                            <p id="country" readonly class="form-control-plaintext">
+                                {{indiaCovidSummay.TotalConfirmed}}</p>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="country">Till Date</label>
+                            <p id="country" readonly class="form-control-plaintext">{{indiaCovidSummay.Date | date}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
                 </div>
             </div>
         </div>

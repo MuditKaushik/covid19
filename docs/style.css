@@ -7148,6 +7148,16 @@ a.text-dark:hover, a.text-dark:focus {
   flex-direction: row;
   justify-content: space-between; }
 
-covid-component .container .summary .card {
-  width: 18rem; }
+.remove-bg-color {
+  background: #fff; }
+
+.remove-bottom-border {
+  border-bottom: none; }
+
+.pointer {
+  cursor: pointer; }
+
+covid-component .summary {
+  align-items: center;
+  margin: 8em auto; }
 

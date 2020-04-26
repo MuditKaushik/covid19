@@ -1,32 +1,46 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { nCovidWorldFetchSummaryAction, nCovidWorldAddSummaryAction } from '../actions/ncovid-world-action';
-import { ICovidSummary } from '../../model/covid/world';
+import { nCovidWorldFetchSummaryAction, nCovidWorldAddSummaryAction, nCovidWorldFetchCountriesAction, nCovidWorldAddCountriesAction } from '../actions/ncovid-world-action';
+import { ICovidSummary, ICovidCountry } from '../../model/covid/world';
 
-function assignNewGlobalSummaryState(oldState: nCovidGlobalStateSummary, newState: ICovidSummary) {
-    let newCovidSummary: nCovidGlobalStateSummary = {
-        globalSummary: newState
+function assignNewGlobalSummaryState(oldState: nCovidGlobalState, newState: ICovidSummary) {
+    let newCovidGlobalState: nCovidGlobalState = {
+        globalSummary: newState,
+        countries: oldState.countries
     };
-    return Object.assign<nCovidGlobalStateSummary, nCovidGlobalStateSummary>(oldState, newCovidSummary);
+    return Object.assign<nCovidGlobalState, nCovidGlobalState>(oldState, newCovidGlobalState);
 };
 
-export interface nCovidGlobalStateSummary {
-    globalSummary: ICovidSummary
+function assignNewGlobalCountriesState(oldState: nCovidGlobalState, newState: Array<ICovidCountry>) {
+    let newCovidGlobalState: nCovidGlobalState = {
+        globalSummary: oldState.globalSummary,
+        countries: newState
+    }
+    return Object.assign(oldState, newCovidGlobalState);
+};
+
+export interface nCovidGlobalState {
+    globalSummary: ICovidSummary,
+    countries: Array<ICovidCountry>
 }
 
-const initialGlobalSummaryState: nCovidGlobalStateSummary = {
-    globalSummary: {} as ICovidSummary
+const initialGlobalSummaryState: nCovidGlobalState = {
+    globalSummary: {} as ICovidSummary,
+    countries: []
 };
 
-const nCovidWorldFetchSummaryReducer = createReducer<nCovidGlobalStateSummary>(
+const nCovidWorldReducerActions = createReducer<nCovidGlobalState>(
     initialGlobalSummaryState,
     on(nCovidWorldFetchSummaryAction),
-    on(nCovidWorldAddSummaryAction, (state: nCovidGlobalStateSummary, newState: ICovidSummary) => assignNewGlobalSummaryState(state, newState))
+    on(nCovidWorldFetchCountriesAction),
+    on(nCovidWorldAddSummaryAction, (state: nCovidGlobalState, newState: ICovidSummary) => assignNewGlobalSummaryState(state, newState)),
+    on(nCovidWorldAddCountriesAction, (state: nCovidGlobalState, newState: { countries: Array<ICovidCountry> }) => assignNewGlobalCountriesState(state, newState.countries))
 );
 
 export function nCovidWorldReducer(state = initialGlobalSummaryState, action: Action) {
     switch (action.type) {
-        case nCovidWorldFetchSummaryAction.type: return nCovidWorldFetchSummaryReducer(state, action);
-        case nCovidWorldAddSummaryAction.type: return nCovidWorldFetchSummaryReducer(state, action);
+        case nCovidWorldFetchSummaryAction.type: return nCovidWorldReducerActions(state, action);
+        case nCovidWorldAddSummaryAction.type: return nCovidWorldReducerActions(state, action);
+        case nCovidWorldFetchCountriesAction.type: return nCovidWorldReducerActions(state, action)
         default: return initialGlobalSummaryState;
     }
 }

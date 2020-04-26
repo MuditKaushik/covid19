@@ -1,9 +1,6 @@
 covid-component {
-    .container {
-        .summary {
-            .card {
-                width: 18rem;
-            }
-        }
+    .summary {
+        align-items: center;
+        margin: 8em auto;
     }
 }
