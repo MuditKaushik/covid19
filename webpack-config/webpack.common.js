@@ -82,6 +82,10 @@ function webpackPlugins() {
         {
             from: path.resolve(rootDirectory, './src/favicon.ico'),
             to: path.resolve(rootDirectory, './docs/')
+        },
+        {
+            from: path.resolve(rootDirectory, './src/i18n-lang/'),
+            to: path.resolve(rootDirectory, './docs/assets/i18n/')
         }
     ]);
     var webpackLoaderPlugin = new webpack.LoaderOptionsPlugin({ debug: true });

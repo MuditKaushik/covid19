@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Observable } from 'rxjs';
-import { map, exhaustMap } from 'rxjs/operators';
+import { exhaustMap, map, switchMap } from 'rxjs/operators';
 import { NCovidWorldService } from '../../core/ncovid-api/world/ncovid-world-service';
-import { ICovidSummary, ICovidCountry } from '../../model/covid/world';
-import { nCovidWorldActionType, nCovidWorldAddSummaryAction, nCovidWorldAddCountriesAction } from '../actions/ncovid-world-action';
+import { ICovidCountry, ICovidSummary } from '../../model/covid/world';
+import { nCovidWorldActionType, nCovidWorldAddCountriesAction, nCovidWorldAddSummaryAction } from '../actions/ncovid-world-action';
 
 @Injectable()
 export class NCovidWorldEffect {
@@ -16,11 +16,8 @@ export class NCovidWorldEffect {
     private get getGlobalCovidSummaryAsync(): Observable<ICovidSummary | any> {
         return this.asyncAction.pipe(
             ofType(nCovidWorldActionType.fetchGlobalSummary),
-            exhaustMap(
-                () => this.ncovidWorldService.getGlobalCovidSummary().pipe(
-                    map(summary => nCovidWorldAddSummaryAction(summary))
-                )
-            )
+            switchMap(() => this.ncovidWorldService.getGlobalCovidSummary()),
+            map(summary => nCovidWorldAddSummaryAction(summary))
         );
     }
 

@@ -1,43 +1,44 @@
-<div class="container summary">
+<div class="container summary" id="main-container">
     <div class="row mb-3">
         <div class="col">
             <div class="card">
-                <div class="card-header remove-bg-color pointer">
+                <div class="card-header remove-bottom-border remove-bg-color pointer" data-parent="#main-container" data-pointer-rotate="">
                     <div class="space-between mb-3">
                         <h5 class="card-title">
-                            <img src="/assets/earth.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-                            World Summary
+                            <img src="./assets/earth.svg" width="30" height="30" class="d-inline-block align-top"
+                                alt="">
+                            {{'World Summary' | transloco }}
                         </h5>
-                        <span class="fa fa-arrow-up fa-fw"></span>
+                        <span class="fa fa-arrow-up fa-lg fa-fw"></span>
                     </div>
                     <div class="card-subtitle form-inline text-muted space-between">
                         <div class="form-group mb-2">
-                            <label for="country">Countries</label>
+                            <label for="country">{{'Countries' | transloco}}</label>
                             <p id="country" readonly class="form-control-plaintext">{{countryCount}}</p>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="country">Active Cases</label>
+                            <label for="country">{{'Active Cases' | transloco}}</label>
                             <p id="country" readonly class="form-control-plaintext">
                                 {{globalCovidSummary.TotalConfirmed}}</p>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="country">Deaths</label>
+                            <label for="country">{{'Death' | transloco}}</label>
                             <p id="country" readonly class="form-control-plaintext">{{globalCovidSummary.TotalDeaths}}
                             </p>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="country">Recovered</label>
+                            <label for="country">{{'Recovered' | transloco}}</label>
                             <p id="country" readonly class="form-control-plaintext">
-                                {{globalCovidSummary.TotalConfirmed}}</p>
+                                {{globalCovidSummary.TotalRecovered}}</p>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="country">Till Date</label>
+                            <label for="country">{{'Till Date' | transloco}}</label>
                             <p id="country" readonly class="form-control-plaintext">{{tillDate | date}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="card-body" *ngIf="showCountrySummary">
-                    <ncovid-global-countries></ncovid-global-countries>
+                    <!-- <ncovid-global-countries></ncovid-global-countries> -->
                 </div>
             </div>
         </div>
@@ -45,32 +46,32 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header remove-bottom-border remove-bg-color pointer">
+                <div class="card-header remove-bottom-border remove-bg-color pointer" data-parent="#main-container">
                     <div class="space-between mb-3">
                         <h5 class="card-title">
                             <img src="/assets/covid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-                            India Summary
+                            {{'India Summary' | transloco }}
                         </h5>
-                        <span class="fa fa-arrow-up fa-fw"></span>
+                        <span class="fa fa-arrow-up fa-lg fa-fw"></span>
                     </div>
                     <div class="card-subtitle form-inline text-muted space-between">
                         <div class="form-group mb-2 mr-2">
-                            <label for="country">Active Cases</label>
+                            <label for="country">{{'Active Cases' | transloco}}</label>
                             <p id="country" readonly class="form-control-plaintext">
                                 {{indiaCovidSummay.TotalConfirmed}}</p>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="country">Deaths</label>
+                            <label for="country">{{'Death' | transloco}}</label>
                             <p id="country" readonly class="form-control-plaintext">{{indiaCovidSummay.TotalDeaths}}
                             </p>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="country">Recovered</label>
+                            <label for="country">{{'Recovered' | transloco}}</label>
                             <p id="country" readonly class="form-control-plaintext">
                                 {{indiaCovidSummay.TotalConfirmed}}</p>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="country">Till Date</label>
+                            <label for="country">{{'Till Date' | transloco}}</label>
                             <p id="country" readonly class="form-control-plaintext">{{indiaCovidSummay.Date | date}}</p>
                         </div>
                     </div>

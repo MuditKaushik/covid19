@@ -1,7 +1,13 @@
-<nav class="navbar">
+<nav class="navbar sticky-top bg-light">
     <a class="navbar-brand" routerLink="/">
         <img src="/assets/covid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
         nCovid-19
     </a>
+    <div class="form-inline my-2 my-lg-0">
+        <label class="navbar-text mr-2 my-2 my-sm-0" for="language">{{'Language' | transloco}}</label>
+        <select class="form-control custom-select-sm" [(ngModel)]="selectedLang" (change)="changeLanguage()">
+            <option *ngFor="let lang of languages" [value]="lang.code">{{lang.language}}</option>
+        </select>
+    </div>
 </nav>
 <router-outlet></router-outlet>
