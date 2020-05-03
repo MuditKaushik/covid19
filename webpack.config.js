@@ -20,4 +20,4 @@ module.exports = (env) => {
 
 function logMessage(envType) {
     console.log(`running ${envType}`);
-};
+}

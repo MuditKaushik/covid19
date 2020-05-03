@@ -7157,7 +7157,20 @@ a.text-dark:hover, a.text-dark:focus {
 .pointer {
   cursor: pointer; }
 
-covid-component .summary {
-  align-items: center;
-  margin: 8em auto; }
+covid-component .container {
+  transition-property: "margin";
+  transition-duration: 0.5s;
+  transition-timing-function: "ease-in-out"; }
+  covid-component .container.summary {
+    align-items: center;
+    margin: 8em auto; }
+  covid-component .container .world-summary-content {
+    transition-property: "height";
+    transition-duration: 0.5s;
+    transition-timing-function: "ease-out"; }
+    covid-component .container .world-summary-content.full-view {
+      height: 30em;
+      transition-property: "height";
+      transition-duration: 0.5s;
+      transition-timing-function: "ease-in"; }
 

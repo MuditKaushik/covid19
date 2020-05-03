@@ -1,6 +1,16 @@
 covid-component {
-    .summary {
-        align-items: center;
-        margin: 8em auto;
-    }
+	.container {
+		@include transition-element("margin", 0.5, "ease-in-out");
+		&.summary {
+			align-items: center;
+			margin: 8em auto;
+		}
+		.world-summary-content {
+			@include transition-element("height", 0.5, "ease-out");
+			&.full-view {
+				height: 30em;
+				@include transition-element("height", 0.5, "ease-in");
+			}
+		}
+	}
 }

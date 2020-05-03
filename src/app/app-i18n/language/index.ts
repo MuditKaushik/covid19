@@ -14,4 +14,4 @@ const languageList: Array<I18nLang> = new Array<I18nLang>(
     }
 );
 
-export const languageSupport = languageList;
+export const supportLanguageList = languageList;

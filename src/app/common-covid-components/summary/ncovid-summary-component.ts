@@ -21,16 +21,20 @@ export class NCovidSummaryComponent {
     constructor(private ngStore: Store<IAppState>) {
         of([]).pipe(
             delay(3000),
-            switchMap(() => this.ngStore.pipe(select(summarySelector)))
+            switchMap((_data) => this.ngStore.pipe(select(summarySelector)))
         ).subscribe((summary: ICovidSummary) => {
-            this.globalCovidSummary = summary.Global;
-            this.countryCount = summary.Countries.length;
-            this.tillDate = new Date(summary.Date);
-            let indiaSummary = new BinarySearchPipe().binarySearch<ICovidCountrySummary | null>(summary.Countries, 'Country', 'India', true);
-            if (indiaSummary) {
-                this.indiaCovidSummay = indiaSummary;
-            }
-            this.showCountrySummary = true;
+            this.assignGlobalSummary(summary);
         });
+    }
+
+    protected assignGlobalSummary(summary: ICovidSummary): void {
+        this.globalCovidSummary = summary.Global;
+        this.countryCount = summary.Countries.length;
+        this.tillDate = new Date(summary.Date);
+        let indiaSummary = new BinarySearchPipe().binarySearch<ICovidCountrySummary | null>(summary.Countries, 'Country', 'India', true);
+        if (indiaSummary) {
+            this.indiaCovidSummay = indiaSummary;
+        }
+        this.showCountrySummary = true;
     }
 }

@@ -2,14 +2,13 @@
     <div class="row mb-3">
         <div class="col">
             <div class="card">
-                <div class="card-header remove-bottom-border remove-bg-color pointer" data-parent="#main-container" data-pointer-rotate="">
+                <div class="card-header remove-bottom-border remove-bg-color pointer" data-parent="#main-container" data-rotate="#world-icon">
                     <div class="space-between mb-3">
                         <h5 class="card-title">
-                            <img src="./assets/earth.svg" width="30" height="30" class="d-inline-block align-top"
-                                alt="">
+                            <img src="./assets/earth.svg" width="30" height="30" class="d-inline-block align-top" alt="">
                             {{'World Summary' | transloco }}
                         </h5>
-                        <span class="fa fa-arrow-up fa-lg fa-fw"></span>
+                        <span class="fa fa-arrow-up fa-lg fa-fw" id="world-icon" data-content="#world-content"></span>
                     </div>
                     <div class="card-subtitle form-inline text-muted space-between">
                         <div class="form-group mb-2">
@@ -37,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body" *ngIf="showCountrySummary">
+                <div class="card-body world-summary-content" id="world-content">
                     <!-- <ncovid-global-countries></ncovid-global-countries> -->
                 </div>
             </div>

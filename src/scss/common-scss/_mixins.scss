@@ -1,7 +1,24 @@
-@mixin nav-active {
-    @extend %nav-link-highlght;
+$browser-map: (
+	"chrome": "-webkit",
+	"mozilla": "-moz",
+	"opera": "-o",
+);
+
+@mixin browser-transition($property, $duration, $timeFunc) {
+	@each $key, $value in $browser-map {
+		$value-transition-property: $property;
+		$value-transition-duration: $duration;
+		$value-transition-timing-function: $timeFunc;
+	}
 }
 
-@mixin transition-element {
-    
+@mixin nav-active {
+	@extend %nav-link-highlght;
+}
+
+@mixin transition-element($property, $duration, $timeFunc) {
+	transition-property: $property;
+	transition-duration: $duration + s;
+	transition-timing-function: $timeFunc;
+	@include browser-transition($property, $duration, $timeFunc);
 }
