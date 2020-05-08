@@ -43,6 +43,9 @@ module.exports = {
     mode: 'production',
     optimization: {
         minimize: true,
+        splitChunks: {
+            chunks: 'all'
+        },
         minimizer: [minificationJsConfig, minificationCssConfig],
         removeEmptyChunks: true,
         mergeDuplicateChunks: true

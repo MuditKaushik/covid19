@@ -4,6 +4,7 @@ import { TranslocoService } from '@ngneat/transloco';
 import { nCovidWorldFetchSummaryAction, nCovidWorldFetchCountriesAction } from '../app-state-management/actions/ncovid-world-action';
 import { nCovidFetchIndiaSummaryAction } from '../app-state-management/actions/ncovid-india-actions';
 import { IAppState } from '../app-state-management/state-model';
+import { SvgIcons } from '../model/covid/icons';
 import { I18nLang, supportLanguageList } from '../app-i18n/language';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,17 +14,18 @@ import { map } from 'rxjs/operators';
 })
 export class CovidComponent {
     languages: Array<I18nLang> = supportLanguageList;
-    selectedLang: string = 'en';
+
     constructor(
         private ngStore: Store<IAppState>,
         private translocoService: TranslocoService,
+        public svgIcons: SvgIcons
     ) {
         of([]).pipe(
             map(() => this.fetchGlobalCovidCountrySummary())
         ).subscribe();
     }
-    changeLanguage(): void {
-        this.translocoService.setActiveLang(this.selectedLang);
+    changeLanguage(langCode: string): void {
+        this.translocoService.setActiveLang(langCode);
     }
     protected fetchGlobalCovidCountrySummary(): void {
         this.ngStore.dispatch(nCovidWorldFetchSummaryAction());

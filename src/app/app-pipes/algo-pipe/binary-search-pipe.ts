@@ -48,7 +48,7 @@ export class BinarySearchPipe implements PipeTransform {
     public binarySearch<T>(array: Array<any>, property: string | null, find: any, searchInObject: boolean = false): T | null {
         let startPoint = 0;
         let endPoint = array.length;
-        while (startPoint < endPoint) {
+        while (startPoint <= endPoint) {
             let midPoint = Math.floor((startPoint + endPoint) / 2);
             let middleValue: any = (searchInObject && property && property.trim().length > 0) ?
                 this.fetchValueFromObject(array[midPoint], property) : array[midPoint];

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { delay, switchMap } from 'rxjs/operators';
@@ -6,6 +6,8 @@ import { BinarySearchPipe } from '../../app-pipes/algo-pipe/binary-search-pipe';
 import { summarySelector } from '../../app-state-management/selectors/state-selectors';
 import { IAppState } from '../../app-state-management/state-model';
 import { ICovidCountrySummary, ICovidGlobalSummary, ICovidSummary } from '../../model/covid/world';
+import { SvgIcons } from '../../model/covid/icons';
+import { NCovidCountriesComponent } from '../world/ncovid-countries-component';
 
 @Component({
     selector: 'ncovid-summary',
@@ -15,16 +17,24 @@ export class NCovidSummaryComponent {
     globalCovidSummary: ICovidGlobalSummary = {} as ICovidGlobalSummary;
     indiaCovidSummay: ICovidCountrySummary = {} as ICovidCountrySummary;
     countryCount: number = 0;
-    tillDate: Date = new Date();
+    tillDate!: Date;
     showCountrySummary: boolean = false;
 
-    constructor(private ngStore: Store<IAppState>) {
+    @ViewChild(NCovidCountriesComponent) globalCountriesComponent!: NCovidCountriesComponent;
+
+    constructor(private ngStore: Store<IAppState>, public svgIcons: SvgIcons) {
         of([]).pipe(
             delay(3000),
             switchMap((_data) => this.ngStore.pipe(select(summarySelector)))
         ).subscribe((summary: ICovidSummary) => {
             this.assignGlobalSummary(summary);
         });
+    }
+
+    showCountries(): void {
+        if (this.globalCountriesComponent) {
+            this.globalCountriesComponent.fetchCountriesData;
+        }
     }
 
     protected assignGlobalSummary(summary: ICovidSummary): void {

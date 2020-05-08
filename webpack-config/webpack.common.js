@@ -77,7 +77,7 @@ function webpackPlugins() {
         },
         {
             from: path.resolve(rootDirectory, './src/assets/'),
-            to: path.resolve(rootDirectory, './docs/assets/')
+            to: path.resolve(rootDirectory, './docs/assets/icons/')
         },
         {
             from: path.resolve(rootDirectory, './src/favicon.ico'),
@@ -90,7 +90,7 @@ function webpackPlugins() {
     ]);
     var webpackLoaderPlugin = new webpack.LoaderOptionsPlugin({ debug: true });
     return [angularAOTCompiler, cssPlugin, copyPlugin, webpackLoaderPlugin];
-};
+}
 
 module.exports = {
     context: path.resolve(rootDirectory, './src'),
@@ -103,6 +103,7 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
+        chunkFilename: '[name].chunk.js',
         path: path.resolve(rootDirectory, './docs/')
     },
     resolve: {

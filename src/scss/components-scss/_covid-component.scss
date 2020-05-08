@@ -1,15 +1,15 @@
 covid-component {
 	.container {
-		@include transition-element("margin", 0.5, "ease-in-out");
+		@include transition-element(margin, 0.5, ease-in-out);
 		&.summary {
 			align-items: center;
 			margin: 8em auto;
 		}
 		.world-summary-content {
-			@include transition-element("height", 0.5, "ease-out");
+			@include transition-element(height, 0.8, ease-in-out);
 			&.full-view {
 				height: 30em;
-				@include transition-element("height", 0.5, "ease-in");
+				overflow-y: scroll;
 			}
 		}
 	}

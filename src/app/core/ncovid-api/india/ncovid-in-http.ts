@@ -9,7 +9,7 @@ import { ICovidDistrictStateData } from '../../../model/covid/india';
 export class NCovid19IndiaHttp {
     constructor(private http: HttpClient) { }
     fetchIndiaAll(): Observable<ICovidDistrictStateData> {
-        return this.http.get<ICovidDistrictStateData>('/covid19india/state_district_wise.json', { observe: 'response' }).pipe(
+        return this.http.get<ICovidDistrictStateData>('/india/state_district_wise.json', { observe: 'response' }).pipe(
             map(response => HttpResponseHandler.fetchResponse(response)),
             catchError(err => HttpResponseHandler.handlerResponseError(err))
         );

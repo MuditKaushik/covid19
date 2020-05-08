@@ -14,17 +14,17 @@ module.exports = {
         filename: 'main.js',
         historyApiFallback: true,
         proxy: {
-            '/covid19world/**': {
+            '/world/**': {
                 target: 'https://api.covid19api.com',
-                pathRewrite: { '^/covid19world': 'https://api.covid19api.com' },
+                pathRewrite: { '^/world': 'https://api.covid19api.com' },
                 changeOrigin: true,
-                secure: false
+                secure: true
             },
-            '/covid19india/**': {
+            '/india/**': {
                 target: 'https://api.covid19india.org',
-                pathRewrite: { '^/covid19india': 'https://api.covid19india.org' },
+                pathRewrite: { '^/india': 'https://api.covid19india.org' },
                 changeOrigin: true,
-                secure: false
+                secure: true
             }
         }
     }

@@ -1,13 +1,21 @@
 <nav class="navbar sticky-top bg-light">
-    <a class="navbar-brand" routerLink="/">
-        <img src="/assets/covid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-        nCovid-19
-    </a>
-    <div class="form-inline my-2 my-lg-0">
-        <label class="navbar-text mr-2 my-2 my-sm-0" for="language">{{'Language' | transloco}}</label>
-        <select class="form-control custom-select-sm" [(ngModel)]="selectedLang" (change)="changeLanguage()">
-            <option *ngFor="let lang of languages" [value]="lang.code">{{lang.language}}</option>
-        </select>
+  <a class="navbar-brand" routerLink="/">
+    <img [src]="svgIcons.fetch('covid')" width="30" height="30" class="d-inline-block align-top" alt="">
+    nCovid-19
+  </a>
+  <div class="form-inline my-2 my-lg-0">
+    <div class="dropleft">
+      <button class="btn btn-outline-info btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        {{'Language' | transloco}}
+      </button>
+      <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu2">
+        <button *ngFor="let lang of languages" class="dropdown-item" type="button" (click)="changeLanguage(lang.code);">
+          <img [src]="svgIcons.fetch(lang.icon)" width="30" height="30" class="d-inline-block align-top" alt="..." />
+          <span class="ml-2">{{lang.language | transloco}}</span>
+        </button>
+      </div>
     </div>
+  </div>
 </nav>
 <router-outlet></router-outlet>

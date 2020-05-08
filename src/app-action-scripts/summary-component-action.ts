@@ -6,7 +6,7 @@ export class nCovidSummaryComponentAction {
 	protected readonly containerSummaryClass = 'summary';
 
 	protected toggleBottomBorder(element: HTMLElement): void {
-		element.classList.toggle('this.borderBottomClass');
+		element.classList.toggle(this.borderBottomClass);
 	}
 
 	protected toggleMoveTop(element: HTMLElement): void {
@@ -39,7 +39,8 @@ export class nCovidSummaryComponentAction {
 		if (contentDomId) {
 			let element = DomUtility.getElement(contentDomId);
 			if (element) {
-				element.classList.toggle('full-view');
+				// element.classList.toggle('full-view');
+				element.classList.toggle('d-none');
 			}
 		}
 	}

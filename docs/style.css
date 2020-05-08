@@ -7158,19 +7158,17 @@ a.text-dark:hover, a.text-dark:focus {
   cursor: pointer; }
 
 covid-component .container {
-  transition-property: "margin";
+  transition-property: margin;
   transition-duration: 0.5s;
-  transition-timing-function: "ease-in-out"; }
+  transition-timing-function: ease-in-out; }
   covid-component .container.summary {
     align-items: center;
     margin: 8em auto; }
   covid-component .container .world-summary-content {
-    transition-property: "height";
-    transition-duration: 0.5s;
-    transition-timing-function: "ease-out"; }
+    transition-property: height;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-in-out; }
     covid-component .container .world-summary-content.full-view {
       height: 30em;
-      transition-property: "height";
-      transition-duration: 0.5s;
-      transition-timing-function: "ease-in"; }
+      overflow-y: scroll; }
 

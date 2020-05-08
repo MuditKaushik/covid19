@@ -14,11 +14,14 @@ export class NCovidCountriesComponent {
     countriesSummary: Array<ICovidCountrySummary> = new Array<ICovidCountrySummary>();
     countries: Array<ICovidCountry> = new Array<ICovidCountry>();
 
-    constructor(private ngStore: Store<IAppState>) {
+    constructor(private ngStore: Store<IAppState>) { }
+
+    get fetchCountriesData(): void {
         this.ngStore.pipe(select(summarySelector)).pipe(
             map((summary) => this.countriesSummary = summary.Countries),
             switchMap(() => this.ngStore.select(countriesSelector)),
             map(countries => this.countries = countries)
         ).subscribe();
+        return;
     }
 }
