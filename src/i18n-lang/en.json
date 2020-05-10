@@ -3,10 +3,19 @@
     "World Summary": "World Summary",
     "India Summary": "India Summary",
     "Countries": "Countries",
+    "Country": "Country",
     "Active Cases": "Active Cases",
     "Death": "Death",
     "Recovered": "Recovered",
     "Till Date": "Till Date",
     "English": "English",
-    "Hindi": "Hindi"
+    "Hindi": "Hindi",
+    "Alphabets": "Alphabets",
+    "Filter By": "Filter By",
+    "Total Cases": "Total Cases",
+    "New Cases": "New Cases",
+    "Total Death": "Total Death",
+    "New Death": "New Death",
+    "Total Recovered": "Total Recovered",
+    "New Recovered": "New Recovered"
 }

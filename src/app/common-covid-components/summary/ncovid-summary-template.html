@@ -24,9 +24,9 @@
                             <tbody>
                                 <tr>
                                     <td>{{countryCount}}</td>
-                                    <td>{{globalCovidSummary.TotalConfirmed}}</td>
-                                    <td>{{globalCovidSummary.TotalDeaths}}</td>
-                                    <td>{{globalCovidSummary.TotalRecovered}}</td>
+                                    <td>{{globalCovidSummary.TotalConfirmed  | format : 'number'}}</td>
+                                    <td>{{globalCovidSummary.TotalDeaths | format : 'number'}}</td>
+                                    <td>{{globalCovidSummary.TotalRecovered | format : 'number'}}</td>
                                     <td>{{tillDate | date}}</td>
                                 </tr>
                             </tbody>
@@ -61,9 +61,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{{indiaCovidSummay.TotalConfirmed}}</td>
-                                    <td>{{indiaCovidSummay.TotalDeaths}}</td>
-                                    <td>{{indiaCovidSummay.TotalConfirmed}}</td>
+                                    <td>{{indiaCovidSummay.TotalConfirmed | format : 'number'}}</td>
+                                    <td>{{indiaCovidSummay.TotalDeaths | format : 'number'}}</td>
+                                    <td>{{indiaCovidSummay.TotalRecovered | format : 'number'}}</td>
                                     <td>{{indiaCovidSummay.Date | date}}</td>
                                 </tr>
                             </tbody>

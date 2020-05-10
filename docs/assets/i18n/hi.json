@@ -3,10 +3,19 @@
     "World Summary": "विश्व कोरोना सारांश",
     "India Summary": "भारत कोरोना सारांश",
     "Countries": "देश",
+    "Country": "देश",
     "Active Cases": "वर्तमान मामले",
     "Death": "मौतें",
     "Recovered": "स्वस्थ",
     "Till Date": "तारीख",
     "English": "अंग्रेज़ी",
-    "Hindi":"हिन्दी"
+    "Hindi": "हिन्दी",
+    "Alphabets": "अक्षर",
+    "Filter By": "फ़िल्टर",
+    "Total Cases": "कुल मामले",
+    "New Cases": "नए मामले",
+    "Total Death": "कुल मौत",
+    "New Death": "नई मौत",
+    "Total Recovered": "कुल स्वस्थ",
+    "New Recovered": "नया स्वस्थ"
 }

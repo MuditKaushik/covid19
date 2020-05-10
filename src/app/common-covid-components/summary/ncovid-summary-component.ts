@@ -5,8 +5,8 @@ import { delay, switchMap } from 'rxjs/operators';
 import { BinarySearchPipe } from '../../app-pipes/algo-pipe/binary-search-pipe';
 import { summarySelector } from '../../app-state-management/selectors/state-selectors';
 import { IAppState } from '../../app-state-management/state-model';
-import { ICovidCountrySummary, ICovidGlobalSummary, ICovidSummary } from '../../model/covid/world';
 import { SvgIcons } from '../../model/covid/icons';
+import { ICovidCountrySummary, ICovidGlobalSummary, ICovidSummary } from '../../model/covid/world';
 import { NCovidCountriesComponent } from '../world/ncovid-countries-component';
 
 @Component({

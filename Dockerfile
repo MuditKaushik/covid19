@@ -7,10 +7,10 @@ COPY ./package.json ${dir}/
 COPY ./tsconfig.json ${dir}/
 COPY ./webpack.config.js ${dir}/
 COPY ./nginx ${dir}/nginx
+COPY ./node_modules ${dir}/node_modules
 COPY ./src ${dir}/src
 COPY ./webpack-config ${dir}/webpack-config/
 
-RUN npm install
 RUN npm rebuild node-sass
 RUN npm run prod
 

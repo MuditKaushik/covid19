@@ -1,9 +1,39 @@
-<div class="row mb-2" *ngFor="let summary of countriesSummary">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{summary.Country}}</h5>
-            </div>
-        </div>
+<div class="row mb-3">
+    <div class="col-md-1">{{'Filter By' | transloco}}:</div>
+    <div class="col-md-2">
+        <select class="form-control" (change)="getCountryIndex($event.target.value)">
+            <option>{{'Alphabets' | transloco}}</option>
+            <option *ngFor="let alphabet of filterAlphabets" [value]="alphabet">{{alphabet}}</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <th scope="col">#</th>
+                <th scope="col">{{'Country' | transloco}}</th>
+                <th scope="col">{{'Total Cases' | transloco}}</th>
+                <th scope="col">{{'New Cases' | transloco}}</th>
+                <th scope="col">{{'Total Death'|transloco}}</th>
+                <th scope="col">{{'New Death' | transloco}}</th>
+                <th scope="col">{{'Total Recovered' | transloco}}</th>
+                <th scope="col">{{'New Recovered' | transloco}}</th>
+                <th scope="col">{{'Till Date' | transloco}}</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let summary of countriesSummary;let num = index;">
+                    <th scope="row">{{num+1}}</th>
+                    <td>{{summary.Country}}</td>
+                    <td>{{summary.TotalConfirmed | format : 'number'}}</td>
+                    <td>{{summary.NewConfirmed | format : 'number'}}</td>
+                    <td>{{summary.TotalDeaths | format : 'number'}}</td>
+                    <td>{{summary.NewDeaths | format : 'number'}}</td>
+                    <td>{{summary.TotalRecovered | format : 'number'}}</td>
+                    <td>{{summary.NewRecovered | format : 'number'}}</td>
+                    <td>{{summary.Date | date}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
