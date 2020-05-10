@@ -15,7 +15,7 @@ export enum svgIconCodeEnum {
 @Injectable()
 export class SvgIcons {
   protected readonly _svgIcons: IIconSvgUrl = {} as any;
-  protected readonly _svgBaseUrl: string = '/assets/icons/';
+  protected readonly _svgBaseUrl: string = './assets/icons/';
 
   constructor() {
     this._svgIcons[svgIconCodeEnum.empty] = this._svgBaseUrl.concat('empty.svg');
